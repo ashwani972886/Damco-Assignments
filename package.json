@@ -1,0 +1,27 @@
+{
+  "name": "damco-assignments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwani972886/Damco-Assignments.git"
+  },
+  "author": "Ashwani Goyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashwani972886/Damco-Assignments/issues"
+  },
+  "homepage": "https://github.com/ashwani972886/Damco-Assignments#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
