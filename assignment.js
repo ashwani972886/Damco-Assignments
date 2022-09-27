@@ -13,5 +13,13 @@ app.use('/2', assignment2Route);
 const assignment4Route = require('./Assignment - IV/main');
 app.use('/4', assignment4Route);
 
+// Route to Assignment - V
+const assignment5Route = require('./Assignment - V/main');
+app.use('/5', assignment5Route);
+
+// Route to EngageXR Assignment
+const engageRoute = require('./EngageXR Assignment/main');
+app.use('/engageXR', engageRoute);
+
 
 module.exports = app;

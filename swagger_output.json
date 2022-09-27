@@ -1,0 +1,438 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "EngageXR API",
+    "description": "EngageXR API  documentation"
+  },
+  "host": "localhost:3000",
+  "basePath": "/assignments/engageXR",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/user/createUser/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "role": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User created!"
+          },
+          "401": {
+            "description": "Unable to create user!"
+          },
+          "409": {
+            "description": "User already exists!"
+          }
+        }
+      }
+    },
+    "/user/loginUser/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logged In succesfully!"
+          },
+          "401": {
+            "description": "Unable to login!"
+          },
+          "403": {
+            "description": "Incorrect Password!"
+          },
+          "404": {
+            "description": "User not found!"
+          }
+        }
+      }
+    },
+    "/company/createCompany/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New company created successfully!"
+          },
+          "401": {
+            "description": "Unable to create company!"
+          },
+          "403": {
+            "description": "Cannot create company!"
+          },
+          "409": {
+            "description": "Company already exists!"
+          }
+        }
+      }
+    },
+    "/company/updateCompany/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "website": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Company details updated successfully!"
+          },
+          "401": {
+            "description": "Unable to update company details!"
+          },
+          "403": {
+            "description": "Cannot update company details!!"
+          },
+          "409": {
+            "description": "Company details already exists!"
+          }
+        }
+      }
+    },
+    "/company/getCompanies/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed Companies!"
+          },
+          "404": {
+            "description": "No companies found!"
+          }
+        }
+      }
+    },
+    "/company/getCompanies/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed Company by given Id"
+          },
+          "403": {
+            "description": "Please enter a valid company id!"
+          }
+        }
+      }
+    },
+    "/company/deleteCompany/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Company deleted successfully!"
+          },
+          "403": {
+            "description": "Please enter a valid company id!"
+          },
+          "404": {
+            "description": "Company not found by given Id!"
+          }
+        }
+      }
+    },
+    "/employee/createEmployee/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "company": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New employee created successfully!"
+          },
+          "401": {
+            "description": "Unable to create employee!"
+          },
+          "403": {
+            "description": "Cannot create employee!"
+          },
+          "406": {
+            "description": "Selected company not found!"
+          },
+          "409": {
+            "description": "Employee already exists!"
+          }
+        }
+      }
+    },
+    "/employee/updateEmployee/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "company": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee details updated successfully!"
+          },
+          "401": {
+            "description": "Unable to update employee details!"
+          },
+          "403": {
+            "description": "Employee not found for given id!"
+          },
+          "406": {
+            "description": "Please enter a valid company id that exists!"
+          },
+          "409": {
+            "description": "Employee details already exists!"
+          }
+        }
+      }
+    },
+    "/employee/getEmployees/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed employees!"
+          },
+          "404": {
+            "description": "No employees found!"
+          }
+        }
+      }
+    },
+    "/employee/getEmployees/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed employee!"
+          },
+          "403": {
+            "description": "Please enter a valid employee id!"
+          },
+          "404": {
+            "description": "Employee not found for given id!"
+          }
+        }
+      }
+    },
+    "/employee/deleteEmployee/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee deleted successfully!"
+          },
+          "403": {
+            "description": "Please enter a valid employee id!"
+          },
+          "404": {
+            "description": "Employee not found for given id!"
+          }
+        }
+      }
+    }
+  }
+}
